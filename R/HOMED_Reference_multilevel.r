@@ -10,6 +10,7 @@ NULL
 
 #' Validate Cell Types Using Linear/Mixed Models
 #'
+#' Adapted from minfi internal function.
 #' Fits linear or mixed-effects models for each probe to estimate cell type-specific
 #' methylation coefficients. Used by pickProbes_limma for 3+ cell types.
 #'
@@ -123,6 +124,7 @@ validationCellType <- function(Y, pheno, modelFix, modelBatch = NULL, L.forFstat
 
 #' Optimize Probe Selection Using IDOL Algorithm
 #'
+#' Adapted from immunomethylomics/IDOL as in Koestler et al. 2016.
 #' Iteratively refines probe selection to minimize RMSE when predicting cell type
 #' proportions. Uses leave-one-out testing and probability weighting to identify
 #' the most informative probes.
@@ -531,6 +533,7 @@ summarize_level1 <- function(cell_types_list, prop_data) {
 
 #' Select Differentially Methylated Probes and Estimate Reference Coefficients
 #'
+#' Adapted from minfi internal function, replacing probe selection with limma function.
 #' Identifies probes that distinguish between cell types using limma differential
 #' methylation analysis, then calculates reference methylation coefficients for
 #' deconvolution at a specified hierarchical level.
@@ -653,6 +656,7 @@ pickProbes_limma <- function(p, pd, level, numProbes = 500, p_val = 0.05, by = '
 
 #' Build Hierarchical Reference Profiles for Cell Type Deconvolution
 #'
+#' Adapted from IDOL: IDentifying Optimal DNA methylation Libraries (IDOL) as in Koestler et al. 2016.
 #' Creates reference methylation profiles for two-level hierarchical 
 #' deconvolution using IDOL optimization. Builds references for both major
 #' cell types (level 1) and subtypes (level 2).
