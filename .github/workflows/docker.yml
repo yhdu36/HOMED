@@ -6,13 +6,7 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "Dockerfile"
-      - ".dockerignore"
-      - "DESCRIPTION"
-      - "NAMESPACE"
-      - "R/**"
-      - ".github/workflows/docker.yml"
+      - docker-setup
 
 jobs:
   build:
