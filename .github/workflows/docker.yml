@@ -37,4 +37,6 @@ jobs:
           push: true
           tags: ghcr.io/yhdu36/homed:0.1.0
           platforms: linux/amd64
-
+          provenance: false
+          sbom: false
+          outputs: type=image,oci-mediatypes=false,push=true
