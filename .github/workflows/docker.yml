@@ -1,0 +1,35 @@
+
+name: Build HOMED Docker Image
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "Dockerfile"
+      - ".dockerignore"
+      - "DESCRIPTION"
+      - "NAMESPACE"
+      - "R/**"
+      - ".github/workflows/docker.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build HOMED image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          tags: homed:test
+          platforms: linux/amd64
+
