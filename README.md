@@ -17,7 +17,7 @@ library(devtools)
 install_github("yhdu36/HOMED")
 ```
 
-### Option 2: Docker
+# Option 2: Docker
 
 HOMED is available as a prebuilt Docker image with R and all required dependencies installed. No local R or Bioconductor installation is needed.
 
